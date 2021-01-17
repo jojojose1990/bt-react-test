@@ -1,0 +1,76 @@
+$bt-font: Calibri;
+$bt-purple: #5514b4;
+$bt-headfoot-font-color: #ffffff;
+$bt-body-font-color: #333333;
+body,
+* {
+  margin: 0;
+  font-family: $bt-font, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+}
+body,
+span,
+p {
+  color: $bt-body-font-color;
+}
+header,
+footer {
+  color: #ffffff;
+}
+
+.bt-wrap {
+  max-width: 1154px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+header {
+  min-height: 80px;
+  background: $bt-purple;
+  .bt-logo {
+    width: 46px;
+    float: left;
+    margin-top: 15px;
+  }
+}
+
+main {
+  .bt-head {
+    margin: 20px 0;
+  }
+  .search-box {
+    width: 60%;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .search-input,
+  .search-input:focus {
+    margin: 0 auto;
+    height: 40px;
+    border-radius: 4px;
+    border: 1px solid $bt-purple;
+    margin-top: 20px;
+    font-size: 20px;
+    width: 100%;
+  }
+}
+
+.bt-button {
+  height: 42px;
+  background-color: $bt-purple;
+  color: #fff;
+  position: absolute;
+  top: 21px;
+  right: -5px;
+  padding: 0 19px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+footer {
+  min-height: 40px;
+  background: $bt-purple;
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+}

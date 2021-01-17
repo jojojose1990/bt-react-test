@@ -1,21 +1,15 @@
-import "./App.css";
+import "./App.scss";
+
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import MainContent from "./components/MainContent";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="bt-app">
+      <Header />
+      <MainContent></MainContent>
+      <Footer></Footer>
     </div>
   );
 }
