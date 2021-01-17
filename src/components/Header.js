@@ -4,6 +4,7 @@ function Header() {
       <div className="bt-wrap">
         <img
           src="https://img01.bt.co.uk/s/assets/191120/images/logo/logo-2018.svg"
+          alt="BT logo"
           className="bt-logo"
         />
       </div>
