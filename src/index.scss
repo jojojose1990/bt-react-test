@@ -76,6 +76,40 @@ footer {
   min-height: 40px;
   background: $bt-purple;
   bottom: 0;
-  position: absolute;
+  position: fixed;
   width: 100%;
+}
+
+.bt-news-list {
+  list-style-type: none;
+}
+
+.bt-article {
+  margin-bottom: 20px;
+  height: 100px;
+  clear: both;
+}
+
+.news-thumbnail {
+  width: 10%;
+  height: 80px;
+  float: left;
+  margin-right: 10px;
+}
+
+.news-details {
+  width: 80%;
+  height: 100px;
+  float: left;
+  text-align: left;
+}
+
+.thumbnail-image {
+  height: 100%;
+  width: 100%;
+}
+
+.news-container {
+  width: 65%;
+  margin: 30px auto;
 }

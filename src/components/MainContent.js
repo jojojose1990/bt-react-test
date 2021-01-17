@@ -1,5 +1,7 @@
 import React, { useState, useCallback } from "react";
 
+import NewsResult from "./NewsResult";
+
 function MainContent() {
   const [searchKey, setSearchKey] = useState("");
   const [articleList, setArticleList] = useState([]);
@@ -20,7 +22,7 @@ function MainContent() {
         console.log(result.articles);
         setArticleList(result.articles);
       });
-  });
+  }, [searchKey]);
 
   return (
     <main className="bt-main bt-wrap">
@@ -39,6 +41,29 @@ function MainContent() {
         >
           Search
         </button>
+      </div>
+      <div className="news-container">
+        <ul className="bt-news-list">
+          {articleList.length &&
+            articleList.map((article) => (
+              <li key={article.publishedAt}>
+                <div className="bt-article">
+                  <div className="news-thumbnail">
+                    <img src={article.urlToImage} className="thumbnail-image" />
+                  </div>
+                  <div className="news-details">
+                    <strong>
+                      <a href={article.url}>{article.title}</a>
+                    </strong>
+                    <h4>{article.author}</h4>
+                    <p>
+                      {article.content && article.content.substring(0, 150)}
+                    </p>
+                  </div>
+                </div>
+              </li>
+            ))}
+        </ul>
       </div>
     </main>
   );
