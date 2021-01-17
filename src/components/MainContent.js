@@ -71,7 +71,7 @@ function MainContent() {
           ))}
           {isDataFetched &&
             articleList.length === 0 &&
-            "Sorry No Result Found for your search..."}
+            "Sorry, No Results found for your search..."}
         </ul>
       </div>
     </main>
