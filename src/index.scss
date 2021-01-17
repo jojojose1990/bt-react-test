@@ -86,22 +86,23 @@ footer {
 
 .bt-article {
   margin-bottom: 20px;
-  height: 100px;
+  height: auto;
   clear: both;
 }
 
 .news-thumbnail {
   width: 10%;
-  height: 80px;
+  height: 60px;
   float: left;
   margin-right: 10px;
 }
 
 .news-details {
   width: 80%;
-  height: 100px;
+  height: auto;
   float: left;
   text-align: left;
+  margin-bottom: 20px;
 }
 
 .thumbnail-image {
@@ -112,4 +113,8 @@ footer {
 .news-container {
   width: 65%;
   margin: 30px auto;
+}
+
+.news-content {
+  text-overflow: ellipsis;
 }

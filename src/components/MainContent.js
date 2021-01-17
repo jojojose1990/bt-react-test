@@ -1,10 +1,9 @@
 import React, { useState, useCallback } from "react";
 
-import NewsResult from "./NewsResult";
-
 function MainContent() {
   const [searchKey, setSearchKey] = useState("");
   const [articleList, setArticleList] = useState([]);
+  const [isDataFetched, setDataFetched] = useState(false);
 
   const fetchRequest = useCallback(() => {
     var url =
@@ -19,7 +18,7 @@ function MainContent() {
     fetch(req)
       .then((res) => res.json())
       .then((result) => {
-        console.log(result.articles);
+        setDataFetched(true);
         setArticleList(result.articles);
       });
   }, [searchKey]);
@@ -32,9 +31,13 @@ function MainContent() {
           type="text"
           className="search-input"
           placeholder="Please type the keywords you want to search"
-          onChange={(event) => setSearchKey(event.target.value)}
+          onChange={(event) => {
+            event.preventDefault();
+            setSearchKey(event.target.value);
+          }}
         />
         <button
+          type="button"
           disabled={!searchKey}
           className="bt-button"
           onClick={fetchRequest}
@@ -44,25 +47,31 @@ function MainContent() {
       </div>
       <div className="news-container">
         <ul className="bt-news-list">
-          {articleList.length &&
-            articleList.map((article) => (
-              <li key={article.publishedAt}>
-                <div className="bt-article">
-                  <div className="news-thumbnail">
-                    <img src={article.urlToImage} className="thumbnail-image" />
-                  </div>
-                  <div className="news-details">
-                    <strong>
-                      <a href={article.url}>{article.title}</a>
-                    </strong>
-                    <h4>{article.author}</h4>
-                    <p>
-                      {article.content && article.content.substring(0, 150)}
-                    </p>
-                  </div>
+          {articleList?.map((article) => (
+            <li key={article.publishedAt}>
+              <div className="bt-article">
+                <div className="news-thumbnail">
+                  <img
+                    src={article.urlToImage}
+                    alt={article.title}
+                    className="thumbnail-image"
+                  />
                 </div>
-              </li>
-            ))}
+                <div className="news-details">
+                  <strong>
+                    <a href={article.url}>{article.title}</a>
+                  </strong>
+                  <h4>{article.author}</h4>
+                  <p className="news-content">
+                    {article.content && article.content.substring(0, 150)}
+                  </p>
+                </div>
+              </div>
+            </li>
+          ))}
+          {isDataFetched &&
+            articleList.length === 0 &&
+            "Sorry No Result Found for your search..."}
         </ul>
       </div>
     </main>
